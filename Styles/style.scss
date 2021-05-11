@@ -46,7 +46,6 @@ main {
   flex-direction: column;
   row-gap: 17px;
 
-  width: 80%;
   width: 300.267px;
   min-height: fit-content;
 }
@@ -65,7 +64,6 @@ main {
   border-top-right-radius: 100px;
 
   .logo {
-    width: 57%;
     width: 125.55px;
     height: auto;
     max-width: 100%;
@@ -84,7 +82,12 @@ main {
       padding: 10px;
       border: none;
       border-radius: 9px;
-      background: $clr-very-dark-blue;
+      background-color: $clr-very-dark-blue;
+
+      &:hover,
+      &:focus {
+        background-color: hsl(229, 26%, 40%);
+      }
     }
   }
 }
@@ -139,7 +142,8 @@ main {
     border-radius: 50%;
     background-color: $clr-pale-blue;
 
-    animation: animate-circle 1.4s ease-out;
+    opacity: 0;
+    animation: animate-circle-opacity 0.2s 1.4s ease-out forwards;
   }
 }
 
@@ -158,6 +162,7 @@ progress {
 
   transform-origin: left;
 
+  // for chrome. to mask the circle animation
   &::after {
     --circle-width: 9px;
     --total-space: 1000;
@@ -199,7 +204,8 @@ progress {
     border-radius: 10px;
     transform-origin: left;
 
-    animation: animate-progress-bar 1.4s ease-out;
+    transform: scaleX(0);
+    animation: animate-progress-bar 1.4s ease-out forwards;
   }
 }
 
@@ -294,18 +300,22 @@ progress {
 
 @keyframes animate-progress-bar {
   0% {
+    opacity: 0;
     transform: scaleX(0);
+  }
+  40% {
+    opacity: 1;
   }
   100% {
     transform: scaleX(1);
   }
 }
 
-@keyframes animate-circle {
+@keyframes animate-circle-opacity {
   0% {
-    transform: translate(-1900%);
+    opacity: 0;
   }
   100% {
-    transform: translateX(0);
+    opacity: 1;
   }
 }

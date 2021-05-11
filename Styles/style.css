@@ -31,7 +31,6 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   row-gap: 17px;
-  width: 80%;
   width: 300.267px;
   min-height: -webkit-fit-content;
   min-height: -moz-fit-content;
@@ -61,7 +60,6 @@ main {
 }
 
 .first-card .logo {
-  width: 57%;
   width: 125.55px;
   height: auto;
   max-width: 100%;
@@ -84,7 +82,11 @@ main {
   padding: 10px;
   border: none;
   border-radius: 9px;
-  background: #0c122c;
+  background-color: #0c122c;
+}
+
+.first-card .icons-container .icon:hover, .first-card .icons-container .icon:focus {
+  background-color: #4b5581;
 }
 
 .second-card {
@@ -139,8 +141,9 @@ main {
   right: calc( var(--available-space) * (100 / var(--total-space)) * 1% + (var(--circle-width) / 2));
   border-radius: 50%;
   background-color: #dddbff;
-  -webkit-animation: animate-circle 1.4s ease-out;
-          animation: animate-circle 1.4s ease-out;
+  opacity: 0;
+  -webkit-animation: animate-circle-opacity 0.2s 1.4s ease-out forwards;
+          animation: animate-circle-opacity 0.2s 1.4s ease-out forwards;
 }
 
 progress {
@@ -197,7 +200,8 @@ progress::-moz-progress-bar {
   background-image: linear-gradient(to right, #ffa399, #ff4d97);
   border-radius: 10px;
   transform-origin: left;
-  animation: animate-progress-bar 1.4s ease-out;
+  transform: scaleX(0);
+  animation: animate-progress-bar 1.4s ease-out forwards;
 }
 
 .progress-indicator-container {
@@ -303,8 +307,12 @@ progress::-moz-progress-bar {
 
 @-webkit-keyframes animate-progress-bar {
   0% {
+    opacity: 0;
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
+  }
+  40% {
+    opacity: 1;
   }
   100% {
     -webkit-transform: scaleX(1);
@@ -314,8 +322,12 @@ progress::-moz-progress-bar {
 
 @keyframes animate-progress-bar {
   0% {
+    opacity: 0;
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
+  }
+  40% {
+    opacity: 1;
   }
   100% {
     -webkit-transform: scaleX(1);
@@ -323,25 +335,21 @@ progress::-moz-progress-bar {
   }
 }
 
-@-webkit-keyframes animate-circle {
+@-webkit-keyframes animate-circle-opacity {
   0% {
-    -webkit-transform: translate(-1900%);
-            transform: translate(-1900%);
+    opacity: 0;
   }
   100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    opacity: 1;
   }
 }
 
-@keyframes animate-circle {
+@keyframes animate-circle-opacity {
   0% {
-    -webkit-transform: translate(-1900%);
-            transform: translate(-1900%);
+    opacity: 0;
   }
   100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    opacity: 1;
   }
 }
 /*# sourceMappingURL=style.css.map */
