@@ -1,0 +1,148 @@
+// VARIABLES
+
+$clr-primary-gradient: linear-gradient(hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+$clr-pale-blue: hsl(243, 100%, 93%);
+$clr-grayish-blue: hsl(229, 7%, 55%);
+$clr-dark-blue: hsl(228, 56%, 26%);
+$clr-very-dark-blue: hsl(229, 57%, 11%);
+
+$base-font-size: 14px;
+$base-font-family: "Raleway", sans-serif;
+$base-font-weight: 400;
+
+$base-border-radius: 10px;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  color: $clr-pale-blue;
+
+  background: url(../images/bg-mobile.png);
+  background-size: cover;
+}
+
+main {
+  width: 80%;
+  width: 300.267px;
+  min-height: 400px;
+}
+
+.first-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 191px;
+  padding: 40px;
+  background-color: $clr-dark-blue;
+  border-radius: $base-border-radius;
+  border-top-right-radius: 100px;
+
+  .logo {
+    width: 57%;
+    width: 125.55px;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .icons-container {
+    display: flex;
+    justify-content: space-between;
+
+    width: 74%;
+    width: 163px;
+
+    .icon {
+      height: 44px;
+      width: 44px;
+      padding: 10px;
+      border: none;
+      border-radius: 9px;
+      background: $clr-very-dark-blue;
+    }
+  }
+}
+
+.second-card {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  margin-top: 17px;
+  padding: 32px;
+  background-color: $clr-dark-blue;
+  border-radius: $base-border-radius;
+}
+
+.storage-left-text {
+  padding-bottom: 17px;
+  white-space: nowrap;
+
+  > span {
+    font-weight: 700px;
+  }
+}
+
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 41px;
+
+  progress {
+    width: 100%;
+    height: 16px;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .progress-indicator-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.small-card {
+  display: grid;
+  place-items: center;
+
+  position: absolute;
+  width: 190px;
+  height: 63px;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: -33px;
+  background: white;
+  color: black;
+  border-radius: $base-border-radius;
+
+  > p {
+    position: relative;
+    height: 58%;
+    font-size: 14px;
+
+    .space-left-number {
+      font-weight: 700;
+      font-size: 2rem;
+    }
+    .place-left-text {
+      position: relative;
+      top: -4.5px;
+    }
+  }
+}
