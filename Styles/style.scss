@@ -120,9 +120,7 @@ main {
 .progress-bar-container {
   --circle-width: 8.5px;
   --total-space: 1000;
-  // --total-space: 510;
   --used-space: 815;
-  // --used-space: 278;
   --available-space: (var(--total-space) - var(--used-space));
   
   display: flex;
