@@ -59,13 +59,13 @@ main {
   border-top-right-radius: 100px;
 }
 
-.first-card .logo {
+.logo {
   width: 125.55px;
   height: auto;
   max-width: 100%;
 }
 
-.first-card .icons-container {
+.icons-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -74,9 +74,13 @@ main {
           justify-content: space-between;
   width: 74%;
   width: 163px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
-.first-card .icons-container .icon {
+.icons-container .icon {
   height: 44px;
   width: 44px;
   padding: 10px;
@@ -85,8 +89,12 @@ main {
   background-color: #0c122c;
 }
 
-.first-card .icons-container .icon:hover, .first-card .icons-container .icon:focus {
-  background-color: #4b5581;
+.icons-container .icon:hover, .icons-container .icon:focus {
+  background-color: #324085;
+}
+
+.icons-container .icon img {
+  -webkit-user-drag: none;
 }
 
 .second-card {
@@ -104,15 +112,17 @@ main {
 .storage-left-text {
   padding-bottom: 17px;
   white-space: nowrap;
-  color: #bbbcc4;
 }
 
 .storage-left-text > span {
   font-weight: 700;
-  color: #dddbff;
 }
 
 .progress-bar-container {
+  --circle-width: 8.5px;
+  --total-space: 1000;
+  --used-space: 815;
+  --available-space: (var(--total-space) - var(--used-space));
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -128,10 +138,6 @@ main {
 }
 
 .progress-bar-container::after {
-  --circle-width: 9px;
-  --total-space: 1000;
-  --used-space: 815;
-  --available-space: (var(--total-space) - var(--used-space));
   position: absolute;
   content: "";
   width: var(--circle-width);
@@ -162,10 +168,6 @@ progress {
 }
 
 progress::after {
-  --circle-width: 9px;
-  --total-space: 1000;
-  --used-space: 815;
-  --available-space: (var(--total-space) - var(--used-space));
   position: absolute;
   content: "";
   width: var(--circle-width);
@@ -247,6 +249,7 @@ progress::-moz-progress-bar {
 .small-card > p .place-left-text {
   position: relative;
   top: -4.5px;
+  color: #5f616d;
 }
 
 @media screen and (min-width: 55em) {
@@ -311,7 +314,7 @@ progress::-moz-progress-bar {
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
   }
-  40% {
+  30% {
     opacity: 1;
   }
   100% {
@@ -326,7 +329,7 @@ progress::-moz-progress-bar {
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
   }
-  40% {
+  30% {
     opacity: 1;
   }
   100% {

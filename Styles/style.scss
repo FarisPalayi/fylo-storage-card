@@ -5,8 +5,8 @@ $clr-primary-gradient: linear-gradient(
   hsl(6, 100%, 80%),
   hsl(335, 100%, 65%)
 );
-$clr-pale-blue: hsl(243, 100%, 93%);
-$clr-grayish-blue: hsl(229, 7%, 75%);
+$clr-primary-pale-blue: hsl(243, 100%, 93%);
+$clr-grayish-blue: hsl(229, 7%, 40%);
 $clr-dark-blue: hsl(228, 56%, 26%);
 $clr-very-dark-blue: hsl(229, 57%, 11%);
 
@@ -33,7 +33,7 @@ body {
   font-size: $base-font-size;
   font-family: $base-font-family;
   font-weight: $base-font-weight;
-  color: $clr-pale-blue;
+  color: $clr-primary-pale-blue;
 
   background: url(../images/bg-mobile.png);
   background-size: cover;
@@ -62,32 +62,38 @@ main {
   background-color: $clr-dark-blue;
   border-radius: $base-border-radius;
   border-top-right-radius: 100px;
+}
 
-  .logo {
-    width: 125.55px;
-    height: auto;
-    max-width: 100%;
-  }
+.logo {
+  width: 125.55px;
+  height: auto;
+  max-width: 100%;
+}
 
-  .icons-container {
-    display: flex;
-    justify-content: space-between;
+.icons-container {
+  display: flex;
+  justify-content: space-between;
 
-    width: 74%;
-    width: 163px;
+  width: 74%;
+  width: 163px;
 
-    .icon {
-      height: 44px;
-      width: 44px;
-      padding: 10px;
-      border: none;
-      border-radius: 9px;
-      background-color: $clr-very-dark-blue;
+  user-select: none;
+  
+  .icon {
+    height: 44px;
+    width: 44px;
+    padding: 10px;
+    border: none;
+    border-radius: 9px;
+    background-color: $clr-very-dark-blue;
 
-      &:hover,
-      &:focus {
-        background-color: hsl(229, 26%, 40%);
-      }
+    &:hover,
+    &:focus {
+      background-color: hsl(230, 45%, 36%);
+    }
+    
+    img{
+      -webkit-user-drag: none;
     }
   }
 }
@@ -105,15 +111,20 @@ main {
 .storage-left-text {
   padding-bottom: 17px;
   white-space: nowrap;
-  color: $clr-grayish-blue;
 
   > span {
     font-weight: 700;
-    color: $clr-pale-blue;
   }
 }
 
 .progress-bar-container {
+  --circle-width: 8.5px;
+  --total-space: 1000;
+  // --total-space: 510;
+  --used-space: 815;
+  // --used-space: 278;
+  --available-space: (var(--total-space) - var(--used-space));
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -121,10 +132,6 @@ main {
   height: 41px;
 
   &::after {
-    --circle-width: 9px;
-    --total-space: 1000;
-    --used-space: 815;
-    --available-space: (var(--total-space) - var(--used-space));
 
     position: absolute;
     content: "";
@@ -140,7 +147,7 @@ main {
     // Available Space * ( 100 / Total Space ) * 1% = Percentage of Available space
     // Percentage of Available space + ( Half width of the circle ) = Perfectly Positioned Circle
     border-radius: 50%;
-    background-color: $clr-pale-blue;
+    background-color: $clr-primary-pale-blue;
 
     opacity: 0;
     animation: animate-circle-opacity 0.2s 1.4s ease-out forwards;
@@ -164,11 +171,6 @@ progress {
 
   // for chrome. to mask the circle animation
   &::after {
-    --circle-width: 9px;
-    --total-space: 1000;
-    --used-space: 815;
-    --available-space: (var(--total-space) - var(--used-space));
-
     position: absolute;
     content: "";
     width: var(--circle-width);
@@ -181,7 +183,7 @@ progress {
     );
     border-radius: 50%;
     transform: translateY(-50%);
-    background-color: $clr-pale-blue;
+    background-color: $clr-primary-pale-blue;
   }
 
   &::-webkit-progress-bar {
@@ -242,6 +244,7 @@ progress {
     .place-left-text {
       position: relative;
       top: -4.5px;
+      color: $clr-grayish-blue;
     }
   }
 }
@@ -254,6 +257,7 @@ progress {
     background-size: 100% 50%;
     background-color: $clr-very-dark-blue;
   }
+
   main {
     width: 65%;
 
@@ -303,7 +307,7 @@ progress {
     opacity: 0;
     transform: scaleX(0);
   }
-  40% {
+  30% {
     opacity: 1;
   }
   100% {

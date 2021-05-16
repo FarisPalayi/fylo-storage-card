@@ -15,11 +15,9 @@
     <title>Frontend Mentor | Fylo data storage component</title>
 
     <link rel="stylesheet" href="./Styles/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <script src="./Scripts/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
       .attribution {
@@ -36,49 +34,25 @@
       <div class="first-card">
         <img class="logo" src="./images/logo.svg" alt="logo" />
         <div class="icons-container">
-          <button class="document icon">
-            <img
-              src="./images/icon-document.svg"
-              alt="document icon"
-              width="20"
-              height="24"
-            />
-          </button>
-          <button class="folder icon">
-            <img
-              src="./images/icon-folder.svg"
-              alt="folder icon"
-              width="24"
-              height="20"
-            />
-          </button>
-          <button class="upload icon">
-            <img
-              src="./images/icon-upload.svg"
-              alt="upload icon"
-              width="24"
-              height="16"
-            />
-          </button>
+          <button class="document icon"><img src="./images/icon-document.svg" alt="document icon" width="20" height="24" /></button>
+          <button class="folder icon"><img src="./images/icon-folder.svg" alt="folder icon" width="24" height="20" /></button>
+          <button class="upload icon"><img src="./images/icon-upload.svg" alt="upload icon" width="24" height="16" /></button>
         </div>
       </div>
 
       <div class="second-card">
         <p class="storage-left-text">
-          You’ve used <span>815 GB</span> of your storage
+          You’ve used <span class="used">815 GB</span> of your storage
         </p>
         <div class="progress-bar-container">
-          <progress max="1000" value="815"></progress>
+          <progress max="1000" value="815" class="progress"></progress>
           <div class="progress-indicator-container">
             <div class="storage-zero">0 GB</div>
             <div class="total-storage">1000 GB</div>
           </div>
         </div>
         <div class="small-card">
-          <p>
-            <span class="space-left-number">185</span>
-            <span class="place-left-text">GB Left</span>
-          </p>
+          <p><span class="space-left-number">185</span> <span class="place-left-text">GB Left</span></p>
         </div>
       </div>
     </main>
@@ -87,7 +61,7 @@
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by <a href="#">Faris P</a>.
     </div>
   </body>
 </html>
