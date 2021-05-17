@@ -12,7 +12,7 @@ console.log(memory.heapTotal);
 console.log(memory.heapUsed);
 
 var osu = require("node-os-utils");
-var drive = osu.drive;
+// var drive = osu.drive;
 
 // drive.info()
 //   .then(info => {
@@ -29,9 +29,9 @@ mem.info().then((info) => {
   console.log(info);
 });
 
-require("child_process").exec("df -h", function (err, resp) {
-  console.log(resp);
-});
+// require("child_process").exec("df -h", function (err, resp) {
+//   console.log(resp);
+// });
 
 let storageInfoObj;
 
