@@ -11,8 +11,6 @@ const memory = process.memoryUsage();
 console.log(memory.heapTotal);
 console.log(memory.heapUsed);
 
-console.log(475 - 224);
-
 var osu = require("node-os-utils");
 var drive = osu.drive;
 
@@ -42,7 +40,7 @@ diskspace.check("C", (err, result) => {
   if (err) console.error("error occurred while reading the memeory", err);
 
   storageInfoObj = {
-    total: Math.floor((result.total / 1e9)),
+    total: Math.floor((result.total / 1e9)), // converting bytes to GB
     used:  Math.floor((result.used / 1e9)),
     left:  Math.floor((result.free / 1e9)),
   };
@@ -57,4 +55,4 @@ app.get("*", (req, res) => {
   res.send('<h1 style="color:red">404 Not Found</h1>');
 });
 
-app.listen(process.env.PORt || 3000);
+app.listen(process.env.PORT || 3000);
