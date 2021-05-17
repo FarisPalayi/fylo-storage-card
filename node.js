@@ -8,30 +8,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const memory = process.memoryUsage();
-console.log(memory.heapTotal);
-console.log(memory.heapUsed);
+console.log('heaptotal : ', memory.heapTotal);
+console.log('heapUsed : ', memory.heapUsed);
 
 var osu = require("node-os-utils");
-// var drive = osu.drive;
-
-// drive.info()
-//   .then(info => {
-//     console.log(info);
-//   })
-
-//drive.free():Promise(Object)
-
-// drive.info().then(info => console.log(info));
 
 var mem = osu.mem;
 
 mem.info().then((info) => {
-  console.log(info);
+  console.log('info : ',info);
 });
 
-// require("child_process").exec("df -h", function (err, resp) {
-//   console.log(resp);
-// });
+require("child_process").exec("df -h", function (err, resp) {
+  console.log('resp : ',resp);
+});
 
 let storageInfoObj;
 
@@ -45,6 +35,7 @@ diskspace.check("C", (err, result) => {
     left:  Math.floor((result.free / 1e9)),
   };
   console.log(storageInfoObj);
+  console.log('result : ', result);
 });
 
 app.get("/getStorage", (req, res) => {
@@ -52,7 +43,7 @@ app.get("/getStorage", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.send('<h1 style="color:red">404 Not Found</h1>');
+  res.send('<h1 style="color:red">No route available</h1>');
 });
 
 app.listen(process.env.PORT || 3000);
