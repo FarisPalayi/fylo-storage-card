@@ -16,6 +16,8 @@ $base-font-weight: 400;
 
 $base-border-radius: 10px;
 
+// Mobile First
+
 *,
 *::before,
 *::after {
@@ -48,6 +50,7 @@ main {
 
   width: 300.267px;
   min-height: fit-content;
+  // margin-bottom: 30px; // attribution
 }
 
 .first-card {
@@ -120,7 +123,7 @@ main {
 }
 
 .progress-bar-container {
-  --circle-width: 8.5px;
+  --circle-width: 8px;
   --total-space: 1000;
   --used-space: 815;
   --available-space: (var(--total-space) - var(--used-space));
@@ -137,7 +140,7 @@ main {
     width: var(--circle-width);
     height: var(--circle-width);
     right: 0;
-    top: 3px;
+    top: 3.5px;
     right: calc(
       var(--available-space) * (100 / var(--total-space)) * 1% +
         (var(--circle-width) / 2)
@@ -272,6 +275,7 @@ progress {
 
   .second-card {
     width: 63%;
+    height: 155px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

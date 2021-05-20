@@ -124,7 +124,7 @@ main {
 }
 
 .progress-bar-container {
-  --circle-width: 8.5px;
+  --circle-width: 8px;
   --total-space: 1000;
   --used-space: 815;
   --available-space: (var(--total-space) - var(--used-space));
@@ -148,7 +148,7 @@ main {
   width: var(--circle-width);
   height: var(--circle-width);
   right: 0;
-  top: 3px;
+  top: 3.5px;
   right: calc( var(--available-space) * (100 / var(--total-space)) * 1% + (var(--circle-width) / 2));
   border-radius: 50%;
   background-color: #dddbff;
@@ -283,6 +283,7 @@ progress::-moz-progress-bar {
   }
   .second-card {
     width: 63%;
+    height: 155px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
