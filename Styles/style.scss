@@ -68,6 +68,8 @@ main {
   width: 125.55px;
   height: auto;
   max-width: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .icons-container {
@@ -78,7 +80,7 @@ main {
   width: 163px;
 
   user-select: none;
-  
+
   .icon {
     height: 44px;
     width: 44px;
@@ -91,8 +93,8 @@ main {
     &:focus {
       background-color: hsl(230, 45%, 36%);
     }
-    
-    img{
+
+    img {
       -webkit-user-drag: none;
     }
   }
@@ -122,7 +124,7 @@ main {
   --total-space: 1000;
   --used-space: 815;
   --available-space: (var(--total-space) - var(--used-space));
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -130,7 +132,6 @@ main {
   height: 41px;
 
   &::after {
-
     position: absolute;
     content: "";
     width: var(--circle-width);

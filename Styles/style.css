@@ -63,6 +63,11 @@ main {
   width: 125.55px;
   height: auto;
   max-width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-user-drag: none;
 }
 
 .icons-container {

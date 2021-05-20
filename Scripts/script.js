@@ -1,11 +1,13 @@
-const progressBarContainer = document.getElementsByClassName("progress-bar-container")[0];
+const progressBarContainer = document.getElementsByClassName(
+  "progress-bar-container"
+)[0];
 const progressBar = document.getElementsByClassName("progress")[0];
 const used = document.getElementsByClassName("used")[0];
 const left = document.getElementsByClassName("space-left-number")[0];
 const total = document.getElementsByClassName("total-storage")[0];
 
-function getData() {
-  fetch("https://fylo-data-storage-card.herokuapp.com/getStorage" || "http://localhost:3000/getStorage")
+async function getData(url) {
+  await fetch(url)
     .then((res) => res.json())
     .then((data) => {
       progressBar.setAttribute("max", data.total);
@@ -21,7 +23,8 @@ function getData() {
       progressBarContainer.style.setProperty("--available-space", data.left);
     })
     .catch((err) => {
-      console.error(err);
+      console.error('error fetching data',err);
     });
 }
-getData();
+getData("https://fylo-data-storage-card.herokuapp.com/getStorage");
+getData("http://localhost:3000/getStorage");
