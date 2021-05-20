@@ -8,19 +8,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const memory = process.memoryUsage();
-console.log('heaptotal : ', memory.heapTotal);
-console.log('heapUsed : ', memory.heapUsed);
+console.log("heaptotal : ", memory.heapTotal);
+console.log("heapUsed : ", memory.heapUsed);
 
 var osu = require("node-os-utils");
 
 var mem = osu.mem;
 
 mem.info().then((info) => {
-  console.log('info : ',info);
-});
-
-require("child_process").exec("df -h", function (err, resp) {
-  console.log('resp : ',resp);
+  console.log("info : ", info);
 });
 
 let storageInfoObj;
@@ -28,14 +24,14 @@ let storageInfoObj;
 var diskspace = require("diskspace");
 diskspace.check("C", (err, result) => {
   if (err) console.error("error occurred while reading the memeory", err);
+  else
+    storageInfoObj = {
+      total: Math.floor(result.total / 1e9), // converting bytes to GB
+      used: Math.floor(result.used / 1e9),
+      left: Math.floor(result.free / 1e9),
+    };
 
-  storageInfoObj = {
-    total: Math.floor((result.total / 1e9)), // converting bytes to GB
-    used:  Math.floor((result.used / 1e9)),
-    left:  Math.floor((result.free / 1e9)),
-  };
-  console.log(storageInfoObj);
-  console.log('result : ', result);
+  console.log("storageInfoObj", storageInfoObj);
 });
 
 app.get("/getStorage", (req, res) => {
@@ -43,7 +39,7 @@ app.get("/getStorage", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.send('<h1 style="color:red">No route available</h1>');
+  res.send('<h2 style="color:red">No route available</h2>');
 });
 
 app.listen(process.env.PORT || 3000);

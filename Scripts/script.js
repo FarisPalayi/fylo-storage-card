@@ -23,7 +23,7 @@ async function getData(url) {
       progressBarContainer.style.setProperty("--available-space", data.left);
     })
     .catch((err) => {
-      console.error('error fetching data',err);
+      console.error("error fetching data", err);
     });
 }
 getData("https://fylo-data-storage-card.herokuapp.com/getStorage");
