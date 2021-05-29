@@ -24,5 +24,5 @@ async function getData(url) {
       console.error("error fetching data", err);
     });
 }
-getData("https://fylo-data-storage-card.herokuapp.com/getStorage");
+// getData("https://fylo-data-storage-card.herokuapp.com/getStorage");
 getData("http://localhost:3000/getStorage");
