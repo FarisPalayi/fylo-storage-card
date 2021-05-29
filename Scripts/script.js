@@ -1,6 +1,4 @@
-const progressBarContainer = document.getElementsByClassName(
-  "progress-bar-container"
-)[0];
+const progressBarContainer = document.getElementsByClassName("progress-bar-container")[0];
 const progressBar = document.getElementsByClassName("progress")[0];
 const used = document.getElementsByClassName("used")[0];
 const left = document.getElementsByClassName("space-left-number")[0];
