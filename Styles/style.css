@@ -315,6 +315,12 @@ progress::-moz-progress-bar {
   }
 }
 
+@media screen and (max-height: 700px) {
+  .attribution {
+    display: none;
+  }
+}
+
 @-webkit-keyframes animate-progress-bar {
   0% {
     opacity: 0;

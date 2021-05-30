@@ -296,6 +296,9 @@ progress {
     }
   }
 }
+@media screen and ( max-height: 700px ) {
+  .attribution { display: none }
+}
 
 @keyframes animate-progress-bar {
   0% {
