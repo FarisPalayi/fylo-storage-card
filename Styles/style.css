@@ -92,6 +92,7 @@ main {
   border: none;
   border-radius: 9px;
   background-color: #0c122c;
+  cursor: pointer;
 }
 
 .icons-container .icon:hover, .icons-container .icon:focus {
