@@ -2,44 +2,35 @@ const process = require("process");
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const nodeDiskInfo = require('node-disk-info');
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const memory = process.memoryUsage();
-console.log("heaptotal : ", memory.heapTotal);
-console.log("heapUsed : ", memory.heapUsed);
-
-var osu = require("node-os-utils");
-
-var mem = osu.mem;
-
-mem.info().then((info) => {
-  console.log("info : ", info);
-});
-
 let storageInfoObj;
 
-var diskspace = require("diskspace");
-diskspace.check("C", (err, result) => {
-  if (err) console.error("error occurred while reading the memeory", err);
-  else
-    storageInfoObj = {
-      total: Math.floor(result.total / 1e9), // converting bytes to GB
-      used: Math.floor(result.used / 1e9),
-      left: Math.floor(result.free / 1e9),
-    };
+try {
+  const disks = nodeDiskInfo.getDiskInfoSync();
+  printResults(disks);
+} catch (e) {
+  console.error(e);
+}
 
-  console.log("storageInfoObj", storageInfoObj);
-});
+function printResults(disks) {
+    for (const disk of disks) {
+        storageInfoObj = { // converting bytes to GB
+          total:`${Math.floor(disk.blocks / 1e9)}`,
+          used: `${Math.floor(disk.used / 1e9)}`,
+          left: `${Math.floor(disk.available / 1e9)}`,
+          percentage: disk.capacity,
+        };
+    }
+}
+// =========================================================================================
 
-app.get("/getStorage", (req, res) => {
-  res.json(storageInfoObj);
-});
+app.get("/getStorage", (req, res) => { res.json(storageInfoObj) });
 
-app.get("*", (req, res) => {
-  res.send('<h2 style="color:red">No route available</h2>');
-});
+app.get("*", (req, res) => { res.send('<h2 style="color:red">No route available</h2>') });
 
 app.listen(process.env.PORT || 3000);
