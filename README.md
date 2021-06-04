@@ -1,5 +1,5 @@
 - [Solution Link](https://www.frontendmentor.io/solutions/solution-rjKxlBI6N)
-- [Live link](fylo-storage-card.netlify.app/)
+- [Live link](https://fylo-storage-card.netlify.app/)
 
 To change browser header bar background color on mobile devices:
 
